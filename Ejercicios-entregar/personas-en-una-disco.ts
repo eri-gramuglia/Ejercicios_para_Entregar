@@ -1,22 +1,22 @@
-let capacidadDisco: number[] = new Array(270);
+let edadClientesDisco: number[] = new Array(5); //array de 270-prueba de escritorio con 5 posiciones
 let index: number;
 let mayorIgual21: number=0;
 let menor21: number=0;
 let totalClientes: number=0;
 
-function Azar(tope: number): number {
-  //funcion para generar números aleatorios del 1 al 100.
-  return Math.floor(Math.random() * tope);
+function getRamdonArbitrary (min,max){//funcion para generar números aleatorios.
+  return Math.floor(Math.random() * (max-min))+min;
 }
-
-for (index = 0; index < 270; index++) {//llamado de la función de números aleatorios.
-  capacidadDisco[index] = Azar(270); //carga de array.
+function ingresoClientes (v:number[]){
+for (index = 0; index < 5; index++) {//llamado de la función de números aleatorios.
+  v[index]=getRamdonArbitrary (15,80); //carga de array con edades desde 15 hasta 80.
+  console.log(`Cliente Nº:edad ${index}, edad: ${ingresoClientes[index]}`);
 }
-for (index = 0; index <= 270; index++) {
-  //console.log(`La Edad del cliente en la posición ${index} es ${numeroAleatorio[index]}`);
-  if ((capacidadDisco[index]>40) && (capacidadDisco[index]<18) {
+for (index = 0; index < 5; index++) {
+  ingresoClientes (edadClientesDisco);
+  if ((edadClientesDisco[index]<=18) && (edadClientesDisco[index]>=40)) {
     console.log ("Prohibido su Ingreso");
-  } else if (capacidadDisco[index]>=21) {
+  } else if (edadClientesDisco[index]>=21) {
     mayorIgual21++;
   } else {
     menor21++;

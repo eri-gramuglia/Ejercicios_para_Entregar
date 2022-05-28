@@ -20,3 +20,4 @@ function cantDivisores(numero: number): number {
 
 let numDivisores: number = cantDivisores(numero);
 console.log("el número", numero, "tiene", numDivisores, "divisores");
+//esta muy bien tu solucion

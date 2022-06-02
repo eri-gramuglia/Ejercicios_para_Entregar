@@ -1,4 +1,4 @@
-let dimensionArray: number = 5;
+let dimensionArray: number = 5; //el ejercicio no especifica la cantidad de butacas.
 let vectorButacas: boolean[] = new Array(dimensionArray);
 
 function cargarButacas(vector: boolean[], largo: number) {

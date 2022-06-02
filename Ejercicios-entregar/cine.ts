@@ -8,7 +8,7 @@ function cargarButacas(vector: boolean[], largo: number) {
 function verificarDisponibilidad(vector: boolean[], largo: number) {
   let butacaVacia: number = 0;
   for (let indice: number = 0; indice <= largo; indice++) {
-    if (vector[indice] === 0) butacaVacia++;
+    if (vector[indice] == 0) butacaVacia++;
   }
   console.log("La cantidad de butacas vacias es:", butacaVacia);
 }

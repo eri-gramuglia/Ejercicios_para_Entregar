@@ -1,16 +1,17 @@
 let dimensionArray: number = Number(
   prompt("Ingresar la cantidad de butacas del cine")
-); //el ejercicio no especifica la cantidad de butacas.
-let vectorButacas: boolean | number[] = new Array(dimensionArray);
+); //el ejercicio no especifica la cantidad de butacas
 
-function butacaBooleana() {
+let vectorButacas: number[] = new Array(dimensionArray);
+
+function generadorBooleano() {
   return Math.floor(Math.random() * 2);
 }
-function cargarButacas(vector: boolean | number[], largo: number) {
+function cargarButacas(vector: number[], largo: number) {
   for (let indice: number = 0; indice < largo; indice++)
-    vector[indice] = butacaBooleana();
+    vector[indice] = generadorBooleano();
 }
-function verificarDisponibilidad(vector: boolean | number[], largo: number) {
+function verificarDisponibilidad(vector: number[], largo: number) {
   let butacaVacia: number = 0;
   for (let indice: number = 0; indice <= largo; indice++) {
     if (vector[indice] === 0) butacaVacia++;

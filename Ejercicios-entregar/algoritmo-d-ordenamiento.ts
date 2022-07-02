@@ -29,15 +29,32 @@ function mostrar(
     );
   }
 }
+
+function intercambiarDatos(
+  arrayNombre: string[],
+  arrayEdad: number[],
+  arrayAltura: number[],
+  posicion1: number,
+  posicion2: number
+) {
+  let nombreAux: string;
+  let edadAux, alturaAux: number;
+  nombreAux = arrayNombre[posicion1];
+  edadAux = arrayEdad[posicion1];
+  alturaAux = arrayAltura[posicion1];
+}
+
 function ordenarArreglos(
   arrayNombre: string[],
   arrayEdad: number[],
   arrayAltura: number[],
   dimension: number
 ) {
-  for (let indice: number = 0; indice < dimension - 1; indice++) {
-    console.log(arrayNombre[indice], arrayEdad[indice], arrayEdad[indice]);
+  let indice1, indice2: number;
+  for (indice1 = 0; indice1 < dimension - 1; indice1++) {
+    //for (indice2=0; indice2 {
   }
+  console.log(arrayNombre[indice], arrayEdad[indice], arrayEdad[indice]);
 }
 //---------------
 ingresarDatos(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);

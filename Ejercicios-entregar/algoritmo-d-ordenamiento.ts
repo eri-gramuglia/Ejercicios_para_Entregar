@@ -1,5 +1,5 @@
 let dimensionArreglos: number = Number(
-  prompt("Ingrese la dimensión de los arreglos")
+  prompt("Ingrese tamaño de los arreglos")
 );
 let arregloNombre: string[] = new Array(dimensionArreglos);
 let arregloEdad: number[] = new Array(dimensionArreglos);
@@ -12,11 +12,12 @@ function ingresarDatos(
   dimension: number
 ) {
   for (let indice: number = 0; indice <= dimension - 1; indice++) {
-    arrayNombre[indice] = prompt("Ingresar nombre");
+    arrayNombre[indice] = prompt("Ingresar el nombre");
     arrayEdad[indice] = Number(prompt("Ingresar la edad"));
     arrayAltura[indice] = Number(prompt("Ingresar la altura"));
   }
 }
+
 function mostrar(
   arrayNombre: string[],
   arrayEdad: number[],
@@ -60,8 +61,10 @@ function intercambiarDatos(
 */
 function compararValores(valorUno: number, valorDos: number): number {
   if (valorUno > valorDos) return 1;
-  else if (valorUno < valorDos) return -1;
-  else return 0;
+  else {
+    if (valorUno < valorDos) return -1;
+    else return 0;
+  }
 }
 
 function ordenarArreglos(
@@ -71,30 +74,31 @@ function ordenarArreglos(
   dimension: number
 ) {
   let i, j: number;
-  let resultadoCompararEdad: number;
-  let resultadoCompararAltura: number;
+  let resultadoCompararEdad: number = 0;
+  let resultadoCompararAltura: number = 0;
+
   for (i = 0; i < dimension - 1; i++) {
     for (j = 0; j < dimension - 1 - i; j++) {
       // comparar las edades
       resultadoCompararEdad = compararValores(arrayEdad[j], arrayEdad[j + 1]);
-      if ((resultadoCompararEdad = 1))
+      if (resultadoCompararEdad === 1) {
         intercambiarDatos(arrayNombre, arrayEdad, arrayAltura, j, j + 1);
-      else if ((resultadoCompararEdad = 0)) {
-        resultadoCompararAltura = compararValores(
-          arrayAltura[j],
-          arrayAltura[j + 1]
-        );
-        if ((resultadoCompararAltura = 1))
-          intercambiarDatos(arrayNombre, arrayEdad, arrayAltura, j, j + 1);
+      } else {
+        if (resultadoCompararEdad === 0) {
+          resultadoCompararAltura = compararValores(
+            arrayAltura[j],
+            arrayAltura[j + 1]
+          );
+          if (resultadoCompararAltura === 1) {
+            intercambiarDatos(arrayNombre, arrayEdad, arrayAltura, j, j + 1);
+          }
+        }
       }
     }
   }
 }
-//---------------
+
 ingresarDatos(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
 mostrar(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
 ordenarArreglos(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
-//mostrar(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
-//intercambiarDatos(arregloNombre, arregloEdad, arregloAltura, 0, 1);
-//intercambiarDatos(arregloNombre,arregloEdad,arregloAltura,3,4);
 mostrar(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);

@@ -54,6 +54,15 @@ function intercambiarDatos(
   arrayEdad[posicion2] = edadAux;
   arrayAltura[posicion2] = alturaAux;
 }
+/* si 1: valorUno>valorDos
+   si -1: valorUno<valorDos
+   si o: valorUno=valorDos
+*/
+function compararValores(valorUno: number, valorDos: number): number {
+  if (valorUno > valorDos) return 1;
+  else if (valorUno < valorDos) return -1;
+  else return 0;
+}
 
 function ordenarArreglos(
   arrayNombre: string[],
@@ -61,17 +70,31 @@ function ordenarArreglos(
   arrayAltura: number[],
   dimension: number
 ) {
-  let indice1, indice2: number;
-  for (indice1 = 0; indice1 < dimension - 1; indice1++) {
-    //for (indice2=0; indice2 {
+  let i, j: number;
+  let resultadoCompararEdad: number;
+  let resultadoCompararAltura: number;
+  for (i = 0; i < dimension - 1; i++) {
+    for (j = 0; j < dimension - 1 - i; j++) {
+      // comparar las edades
+      resultadoCompararEdad = compararValores(arrayEdad[j], arrayEdad[j + 1]);
+      if ((resultadoCompararEdad = 1))
+        intercambiarDatos(arrayNombre, arrayEdad, arrayAltura, j, j + 1);
+      else if ((resultadoCompararEdad = 0)) {
+        resultadoCompararAltura = compararValores(
+          arrayAltura[j],
+          arrayAltura[j + 1]
+        );
+        if ((resultadoCompararAltura = 1))
+          intercambiarDatos(arrayNombre, arrayEdad, arrayAltura, j, j + 1);
+      }
+    }
   }
-  console.log(arrayNombre[indice], arrayEdad[indice], arrayEdad[indice]);
 }
 //---------------
 ingresarDatos(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
 mostrar(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
-//ordenarArreglos(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
+ordenarArreglos(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
 //mostrar(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
-intercambiarDatos(arregloNombre, arregloEdad, arregloAltura, 1, 2);
+//intercambiarDatos(arregloNombre, arregloEdad, arregloAltura, 0, 1);
 //intercambiarDatos(arregloNombre,arregloEdad,arregloAltura,3,4);
 mostrar(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);

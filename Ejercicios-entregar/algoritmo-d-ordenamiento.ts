@@ -40,7 +40,7 @@ function intercambiarDatos(
 ) {
   // declaro variables donde guardar para no perder los valores
   let nombreAux: string;
-  let edadAux, alturaAux: number;
+  let edadAux:number, alturaAux: number;
   // Paso 1 : Guardo en las variables lo que tengo en la pos 1 de los arreglos
 
   nombreAux = arrayNombre[posicion1];
@@ -73,7 +73,7 @@ function ordenarArreglos(
   arrayAltura: number[],
   dimension: number
 ) {
-  let i, j: number;
+  let i:number, j: number;
   let resultadoCompararEdad: number = 0;
   let resultadoCompararAltura: number = 0;
 
@@ -102,3 +102,4 @@ ingresarDatos(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
 mostrar(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
 ordenarArreglos(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
 mostrar(arregloNombre, arregloEdad, arregloAltura, dimensionArreglos);
+/*Esta muy bien resuelto*/
